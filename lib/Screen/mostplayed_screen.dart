@@ -84,7 +84,7 @@ class _MostplayedScreenState extends State<MostplayedScreen> {
                         type: ArtworkType.AUDIO,
                         nullArtworkWidget: ClipOval(
                           child: Image.asset(
-                            'assets/image/360_F_195820215_3qBs8o8cUenR6H9ZWIjnKe60IXSb1xjv-removebg-preview.png',
+                            'assets/images/home/282775792_551198669707007_1507136733228624337_n.jpg',
                             fit: BoxFit.cover,
                             alignment: Alignment.bottomRight,
                           ),
