@@ -1,6 +1,7 @@
 import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:flutter/material.dart';
 import 'package:music_app/Function/function.dart';
+import 'package:music_app/Function/most_played.dart';
 import 'package:music_app/Function/playaudio/open_audio.dart';
 import 'package:music_app/Function/recent.dart';
 
@@ -181,6 +182,7 @@ class _AllSongsState extends State<Homescreen> {
                                         allsongs: widget.audiosongs)
                                     .openAsset(
                                         audios: audiosongs, index: index);
+                                addmostplayed(index: index);
                               },
                               trailing: IconButton(
                                 onPressed: () {

@@ -55,7 +55,7 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   Future<void> gotohome() async {
-    await Future.delayed(const Duration(seconds: 4));
+    await Future.delayed(const Duration(seconds: 3));
     Navigator.of(context).pushReplacement(
       MaterialPageRoute(
         builder: (ctx) => Homescreen(audiosongs: audiosongs),

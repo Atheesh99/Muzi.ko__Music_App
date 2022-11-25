@@ -30,7 +30,7 @@ class _RecentListState extends State<RecentList> {
           builder: (context, boxes, _) {
             final recentsongs = box.get("recent");
 
-            if (recentsongs!.isEmpty) {
+            if (recentsongs == null || recentsongs.isEmpty) {
               return const Center(
                 child: Text(
                   "No Recents",

@@ -49,7 +49,7 @@ dependencies:
   share_plus: ^6.2.0
   flutter_html: ^2.2.1
   sticky_headers: ^0.3.0+2
-  flutter_ripple: ^0.0.3
+  
   
   
 
@@ -67,7 +67,8 @@ dev_dependencies:
   flutter_lints: ^2.0.0
   hive_generator: ^2.0.0
   build_runner: ^2.3.2
-  flutter_launcher_icons: ^0.10.0
+  flutter_launcher_icons: ^0.11.0
+
 
 flutter_icons:
   android: "launcher_icon"

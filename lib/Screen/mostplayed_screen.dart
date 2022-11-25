@@ -22,10 +22,10 @@ class _MostplayedScreenState extends State<MostplayedScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xff091227),
+      backgroundColor: Color.fromARGB(255, 8, 18, 18),
       appBar: AppBar(
-        backgroundColor: const Color(0xff091227),
-        elevation: 0,
+        backgroundColor: Colors.transparent,
+        elevation: 10,
         toolbarHeight: 80,
         centerTitle: true,
         title: Text(
@@ -40,8 +40,8 @@ class _MostplayedScreenState extends State<MostplayedScreen> {
       ),
       body: ValueListenableBuilder(
           valueListenable: box.listenable(),
-          builder: (context, Boxes, _) {
-            final mostplayedsongs = box.get("mostplay");
+          builder: (context, boxes, _) {
+            final mostplayedsongs = box.get("mostplaypry");
             if (mostplayedsongs == null || mostplayedsongs.isEmpty) {
               return const Center(
                 child: Text(
@@ -74,19 +74,45 @@ class _MostplayedScreenState extends State<MostplayedScreen> {
                           MiniPlayer(index: index, audiosongs: audiosongs),
                     );
                   },
-                  child: ListTile(
+                  child: Container(
+                    margin: const EdgeInsets.all(10),
+                    decoration: BoxDecoration(
+                      color: const Color.fromARGB(255, 3, 26, 36),
+                      border: Border.all(color: Colors.black45),
+                      borderRadius: BorderRadius.circular(20),
+                      boxShadow: const [
+                        BoxShadow(
+                          color: Color.fromARGB(255, 199, 196, 196),
+                          offset: Offset(
+                            0.0,
+                            1.0,
+                          ),
+                          blurRadius: 1.10,
+                          spreadRadius: 1.0,
+                        ),
+                        BoxShadow(
+                          color: Color.fromARGB(255, 2, 1, 14),
+                          offset: Offset(
+                            0.0,
+                            0.0,
+                          ),
+                          blurRadius: 0.0,
+                          spreadRadius: 0.0,
+                        ),
+                      ],
+                    ),
+                    child: ListTile(
                       visualDensity: const VisualDensity(
                         horizontal: 4,
-                        vertical: 1,
                       ),
                       leading: QueryArtworkWidget(
                         id: mostplayedsongs[index].id,
                         type: ArtworkType.AUDIO,
-                        nullArtworkWidget: ClipOval(
-                          child: Image.asset(
-                            'assets/images/home/282775792_551198669707007_1507136733228624337_n.jpg',
-                            fit: BoxFit.cover,
-                            alignment: Alignment.bottomRight,
+                        nullArtworkWidget: const CircleAvatar(
+                          backgroundColor: Colors.white,
+                          radius: 30,
+                          backgroundImage: AssetImage(
+                            'assets/image/360_F_195820215_3qBs8o8cUenR6H9ZWIjnKe60IXSb1xjv-removebg-preview.png',
                           ),
                         ),
                       ),
@@ -104,7 +130,21 @@ class _MostplayedScreenState extends State<MostplayedScreen> {
                           overflow: TextOverflow.ellipsis,
                           style: const TextStyle(
                             color: Colors.white,
-                          ))),
+                          )),
+                      trailing: IconButton(
+                          onPressed: () {
+                            setState(() {
+                              mostplayedsongs.removeAt(index);
+                              box.put("mostplaypry", mostplayedsongs);
+                            });
+                          },
+                          icon: const Icon(
+                            Icons.close,
+                            size: 28,
+                            color: Colors.white,
+                          )),
+                    ),
+                  ),
                 ),
                 itemCount: mostplayedsongs.length,
               );
